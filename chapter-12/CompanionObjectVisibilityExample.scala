@@ -1,4 +1,6 @@
 @main def m(args: String*) =
+  val rocket = new Rocket()
+  Rocket.chooseStrategy(rocket)
   println("Hello Companions")
 
 // Example how Companion objects and classes can
