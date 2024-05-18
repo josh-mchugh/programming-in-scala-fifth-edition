@@ -13,3 +13,19 @@
   println(s"span: ${numbers.span(_ > 0)}")
   println(s"exists: ${numbers.exists(_ > 0)}")
   println(s"forall: ${words.forall(_.length < 4)}")
+  println(s"foldLeft: ${words.foldLeft("")(_ + " " + _)}")
+  println(s"foldRight: ${words.foldRight("")(_ + " " + _)}")
+  println(s"reserseLeft: ${reverseLeft(numbers)}")
+  println(s"sortWith: ${numbers.sortWith(_ < _)}")
+  println(s"List.apply: ${List.apply(1, 2, 3)}")
+  println(s"List.range: ${List.range(9, 1, -3)}")
+  println(s"List.fill: ${List.fill(3)("hello")}")
+  // squares
+  println(s"List.tabulate: ${List.tabulate(5)(n => n * n)}")
+  // multiplication
+  println(s"List.tabulate: ${List.tabulate(5, 5)(_ * _)}")
+  println(s"List.concat: ${List.concat(List('a'), List('b'), List('c', 'd'))}")
+
+// a linear complexity reverse function
+def reverseLeft[T](xs: List[T]) =
+  xs.foldLeft(List[T]()) { (ys, y) => y :: ys }
