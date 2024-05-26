@@ -7,12 +7,13 @@ import Direction.{North, South, East, West}
   println(s"value of West: ${Direction.valueOf("West")}")
   println(s"South degress: ${South.degrees}")
   println(s"all but nearest: ${allButNearest(42)}")
+  println(s"java compareTo: ${East.compareTo(South)}")
 
   def allButNearest(degrees: Int): List[Direction] =
     val nearest = Direction.nearestTo(degrees)
     Direction.values.toList.filter(_ != nearest)
 
-enum Direction(val degrees: Int):
+enum Direction(val degrees: Int) extends java.lang.Enum[Direction]:
   def invert: Direction =
     this match
       case North => South
