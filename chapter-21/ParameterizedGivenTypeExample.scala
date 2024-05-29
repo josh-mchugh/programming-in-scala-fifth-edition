@@ -16,9 +16,10 @@ trait Ord[T]:
   def lteq(x: T, y: T): Boolean = compare(x, y) < 1
 
 object Ord:
-  given intOrd: Ord[Int] with
+  given Ord[Int] with
     def compare(x: Int, y: Int) =
       if x == y then 0 else if x > y then 1 else -1
 
-  given stringOrd: Ord[String] with
+  given Ord[String] with
     def compare(s: String, t: String) = s.compareTo(t)
+
